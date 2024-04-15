@@ -21,8 +21,8 @@ def process_video(
     tracker = sv.ByteTrack()  # Bytetracker instance
     box_annotator = sv.BoundingBoxAnnotator()  # BondingBox annotator instance
     label_annotator = sv.LabelAnnotator()  # Label annotator instance
-    frame_generator = sv.get_video_frames_generator(source_path="C:/Users/91823/Downloads/traffic_china.mp4")  # for generating frames from video
-    video_info = sv.VideoInfo.from_video_path(video_path="C:/Users/91823/Downloads/traffic_china.mp4")
+    frame_generator = sv.get_video_frames_generator(source_path=video_path)  # for generating frames from video
+    video_info = sv.VideoInfo.from_video_path(video_path=video_path)
     line_counter = sv.LineZone(start=LINE_STARTS, end=LINE_END)
     line_annotator = sv.LineZoneAnnotator(thickness=2, text_thickness=2, text_scale=0.5)
 
@@ -32,7 +32,7 @@ def process_video(
             results = model(frame, verbose=False, conf=confidence_threshold, iou=iou_threshold)[0]
             detections = sv.Detections.from_ultralytics(results)  # Getting detections
             # Filtering classes for car and truck only instead of all COCO classes.
-            detections = detections[np.where((detections.class_id == 2) | (detections.class_id == 3))]
+            detections = detections[np.where((detections.class_id == 2) | (detections.class_id == 3))] #user can change detection class ids according to their need current ids detect cars and motorcycle respectively
             detections = tracker.update_with_detections(detections)  # Updating detection to Bytetracker
             # Annotating detection boxes
             annotated_frame = box_annotator.annotate(scene=frame.copy(), detections=detections)
