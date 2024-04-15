@@ -1,10 +1,22 @@
 # YOLO_ByteTrack
 
-to run the following code install
-'supervision'
-'ultralytics'
-using pip
+### Steps
 
-run the following command in the terminal
-'python <file_name> --source_weights_path <yolo_weights> --source_video_path <source_video> --target_video_path <result_video> --confidence_threshold 0.1'
+1. Clone the repository:
 
+    ```bash
+    
+    ```
+
+2. Install dependencies:
+
+    ```bash
+    pip install ultralytics
+    pip install supervision
+    ```
+
+3. Run the app:
+
+    ```bash
+    python main.py --source_weights_path <yolo_weights> --source_video_path <video_path> --target_video_path <result_path> --confidence_threshold 0.1
+    ```
