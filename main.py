@@ -31,7 +31,7 @@ def process_video(
             # Getting result from model
             results = model(frame, verbose=False, conf=confidence_threshold, iou=iou_threshold)[0]
             detections = sv.Detections.from_ultralytics(results)  # Getting detections
-            # Filtering classes for car and truck only instead of all COCO classes.
+            # Filtering classes for car and motorcycle only instead of all COCO classes.
             detections = detections[np.where((detections.class_id == 2) | (detections.class_id == 3))] #user can change detection class ids according to their need current ids detect cars and motorcycle respectively
             detections = tracker.update_with_detections(detections)  # Updating detection to Bytetracker
             # Annotating detection boxes
