@@ -1,11 +1,12 @@
 # YOLO_ByteTrack
+## This program does the counting of the vehicles from the source video using YOLOv8 detection and Tracking vehicles using ByteTrack 
 
 ### Steps
 
 1. Clone the repository:
 
     ```bash
-    
+    https://github.com/rain2108/YOLO_ByteTrack.git
     ```
 
 2. Install dependencies:
