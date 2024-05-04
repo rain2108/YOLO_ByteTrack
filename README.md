@@ -6,7 +6,7 @@
 1. Clone the repository:
 
     ```bash
-    https://github.com/rain2108/YOLO_ByteTrack.git
+    git clone https://github.com/rain2108/YOLO_ByteTrack.git
     ```
 
 2. Install dependencies:
